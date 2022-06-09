@@ -2,7 +2,7 @@
 
 import os
 import subprocess
-
+from os import path
 
 def checkRoot():
     try:
@@ -15,7 +15,13 @@ def checkRoot():
 os.system("apt update; apt upgrade -y;")
 os.system("apt install -y net-tools vim mc htop")
 os.system("apt install lsb-release ca-certificates apt-transport-https software-properties-common -y")
-os.system("add-apt-repository ppa:ondrej/php")
+
+ondrejPresent = path.exists("/etc/apt/sources.list.d/ondrej-ubuntu-php-focal.list")
+if(ondrejPresent is False):
+    os.system("add-apt-repository ppa:ondrej/php")
+else:
+    print("PHP 8.1 Repository is already installed.")
+
 os.system("apt update;")
 
 apachePresent = os.system("service apache2 status")
@@ -30,8 +36,9 @@ if(apachePresent > 0):
 else:
     print("MySQL is already installed.")
 
-phpPresent = os._exists("/etc/php")
+phpPresent = path.exists("/etc/php")
 if(phpPresent is not True):
     os.system("apt install -y php8.1-imagick php8.1-imap php8.1-mysql")
 else:
     print("PHP 8.1 is already installed.")
+

@@ -41,7 +41,7 @@ else:
 
 phpPresent = path.exists("/etc/php")
 if(phpPresent is not True):
-    os.system("apt install -y php8.1-imagick php8.1-imap php8.1-mysql")
+    os.system("apt install -y php8.1-imagick php8.1-imap php8.1-mongodb")
 else:
     print("PHP 8.1 is already installed.")
 

@@ -2,7 +2,6 @@
 
 import os
 import subprocess
-import socket
 
 
 def checkRoot():
@@ -14,17 +13,17 @@ def checkRoot():
 
 
 os.system("apt update; apt upgrade -y;")
-os.system("apt install -y net-tools")
+os.system("apt install -y net-tools vim mc htop")
 
-apachePresent = os.system("netstat -lnput | grep \":80\" | grep \"LISTEN\" | cut -d '/' -f 2")
-if(apachePresent is None):
+apachePresent = os.system("service apache2 status")
+if(apachePresent > 0):
     os.system("apt install -y apache2")
 else:
     print("Apache2 is already installed.")
 
-s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.connect(("8.8.8.8", 80))
-ipaddress = s.getsockname()[0]
-s.close()
-
+mysqlPresent = os.system("service mysql status")
+if(apachePresent > 0):
+    os.system("apt install -y mysql-server mysql-client")
+else:
+    print("MySQL is already installed.")
 

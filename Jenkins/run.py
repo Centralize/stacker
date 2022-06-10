@@ -6,8 +6,8 @@ import subprocess
 import socket
 
 
-hostname = socket.gethostname()
-local_ip = socket.gethostbyname(hostname)
+#hostname = socket.gethostname()
+#local_ip = socket.gethostbyname(hostname)
 
 
 jenkinsPresent = os.system("service status jenkins")
@@ -21,4 +21,4 @@ else:
 
 jenkinsPresent = os.system("service status jenkins")
 if(jenkinsPresent is True):
-    print(f'Jenkins is installed. Access GUI @: http://{local_ip}:8080')
+    print('Jenkins is installed.')

@@ -5,15 +5,6 @@ from os import path
 import subprocess
 import socket
 
-def checkRoot():
-    try:
-        os.rename('/root/.bash_history', '/root/.bash_history')
-    except Exception():
-        if (e[0] is errno.EPERM):
-            sys.exit("You need to run as root or sudo. Exiting.")
-
-
-checkRoot()
 
 hostname = socket.gethostname()
 local_ip = socket.gethostbyname(hostname)

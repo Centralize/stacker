@@ -12,6 +12,8 @@ def checkRoot():
             sys.exit("You need to run as root or sudo. Exiting.")
 
 
+checkRoot()
+
 os.system("apt update; apt upgrade -y;")
 os.system("apt install -y net-tools vim mc htop")
 os.system("apt install lsb-release ca-certificates apt-transport-https software-properties-common -y")

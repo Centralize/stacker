@@ -10,7 +10,7 @@ import socket
 #local_ip = socket.gethostbyname(hostname)
 
 
-jenkinsPresent = os.system("service status jenkins")
+jenkinsPresent = os.system("service jenkins status")
 if(jenkinsPresent is False):
     os.system("wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -")
     os.system("sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'")
@@ -19,6 +19,6 @@ if(jenkinsPresent is False):
 else:
     print("Jenkins is already installed.\n")
 
-jenkinsPresent = os.system("service status jenkins")
+jenkinsPresent = os.system("service jenkins status")
 if(jenkinsPresent is True):
     print('Jenkins is installed.')

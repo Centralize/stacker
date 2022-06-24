@@ -11,10 +11,10 @@ def syntax():
     print(" Syntax: stacker <module>")
     print("")
 
-if(sys.argv is not None):
+try:
     stack == (sys.argv[1])
     subprocess.call(f"{stack}/run.py")
-else: 
+except:
     print("Syntax error.")
     syntax()
 exit(0)

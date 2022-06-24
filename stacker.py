@@ -4,17 +4,6 @@ import subprocess
 import sys
 
 
-def syntax():
-    print("")
-    print("Stacker")
-    print("------------------------------------------")
-    print(" Syntax: stacker <module>")
-    print("")
-
-try:
-    stack == (sys.argv[1])
+if(sys.argv is not None):
+    stack = sys.argv[1]
     subprocess.call(f"{stack}/run.py")
-except:
-    print("Syntax error.")
-    syntax()
-exit(0)

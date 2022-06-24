@@ -18,7 +18,7 @@ os.system("apt install -y net-tools vim mc htop")
 os.system("apt install lsb-release ca-certificates apt-transport-https software-properties-common -y")
 
 os.system("apt install -y redis-server")
-os.system("sed -i 's/supervised no/supervied systemd/g' /etc/redis/redis.conf")
+os.system("sed -i 's/supervised no/supervised systemd/g' /etc/redis/redis.conf")
 os.system("systemctl restart redis.service")
 os.system("systemctl status redis")
 os.system("systemctl enable redis")
